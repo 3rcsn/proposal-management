@@ -1,5 +1,6 @@
 package org.ercsn.proposalmanagement.auth.infrastructure.http;
 
+import org.ercsn.proposalmanagement.auth.infrastructure.persistence.entity.User;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -12,8 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class Controller {
 
     @GetMapping
-    String hello(@AuthenticationPrincipal UserDetails user) {
-        return "Hello, " + user.getUsername();
+    String hello(@AuthenticationPrincipal User user) {
+        return "Hello, " + user.getId();
     }
 
     @GetMapping("/influencer")
