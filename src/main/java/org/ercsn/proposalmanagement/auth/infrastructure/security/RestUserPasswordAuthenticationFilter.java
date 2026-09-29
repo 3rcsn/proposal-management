@@ -20,6 +20,9 @@ public class RestUserPasswordAuthenticationFilter extends UsernamePasswordAuthen
         super(authenticationConfiguration.getAuthenticationManager());
         this.objectMapper = objectMapper;
         setFilterProcessesUrl("/api/auth/login");
+        setAuthenticationSuccessHandler((request, response, authentication) -> {
+            response.setStatus(HttpServletResponse.SC_OK);
+        });
     }
 
     @Override

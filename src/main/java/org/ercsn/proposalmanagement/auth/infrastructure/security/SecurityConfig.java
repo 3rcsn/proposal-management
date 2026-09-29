@@ -25,6 +25,7 @@ public class SecurityConfig {
                                             RestUserPasswordAuthenticationFilter filter) throws Exception {
         http
              .csrf(AbstractHttpConfigurer::disable)
+                .securityContext(context -> context.requireExplicitSave(false))
              .authorizeHttpRequests(auth -> auth
                      .requestMatchers("/api/auth/login")
                      .permitAll()
