@@ -54,12 +54,12 @@ public class SecurityConfig {
                 User tech = new User();
                 tech.setUsername("tech");
                 tech.setPassword(passwordEncoder.encode("password"));
-                tech.setRole(UserRole.INFLUENCER);
+                tech.setRole(UserRole.ROLE_INFLUENCER);
 
                 User brand = new User();
                 brand.setUsername("logistics");
                 brand.setPassword(passwordEncoder.encode("password"));
-                brand.setRole(UserRole.BRAND);
+                brand.setRole(UserRole.ROLE_BRAND);
 
                 repository.saveAll(List.of(fitnessInfluencer, tech, brand));
             }
