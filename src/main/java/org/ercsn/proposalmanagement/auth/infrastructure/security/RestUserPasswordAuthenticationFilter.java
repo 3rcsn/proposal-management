@@ -1,0 +1,34 @@
+package org.ercsn.proposalmanagement.auth.infrastructure.security;
+
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.stereotype.Component;
+import tools.jackson.databind.ObjectMapper;
+
+@Component
+public class RestUserPasswordAuthenticationFilter extends UsernamePasswordAuthenticationFilter  {
+
+    private final ObjectMapper objectMapper;
+
+    public RestUserPasswordAuthenticationFilter(ObjectMapper objectMapper) {
+        this.objectMapper = objectMapper;
+        setFilterProcessesUrl("/api/auth/login");
+    }
+
+    @Override
+    public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
+        try {
+            var loginRequest = objectMapper.readValue(request.getInputStream(), LoginRequest.class);
+            var token = UsernamePasswordAuthenticationToken.unauthenticated(loginRequest.username(), loginRequest.password());
+            return getAuthenticationManager().authenticate(token);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public record LoginRequest(String username, String password) {}
+}
