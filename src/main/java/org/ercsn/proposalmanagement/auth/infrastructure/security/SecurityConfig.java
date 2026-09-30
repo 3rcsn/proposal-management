@@ -49,7 +49,7 @@ public class SecurityConfig {
                 User fitnessInfluencer = new User();
                 fitnessInfluencer.setUsername("fitness");
                 fitnessInfluencer.setPassword(passwordEncoder.encode("password"));
-                fitnessInfluencer.setRole(UserRole.INFLUENCER);
+                fitnessInfluencer.setRole(UserRole.ROLE_INFLUENCER);
 
                 User tech = new User();
                 tech.setUsername("tech");
