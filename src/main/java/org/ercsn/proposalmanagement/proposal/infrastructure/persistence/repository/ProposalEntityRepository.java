@@ -8,5 +8,5 @@ import java.util.List;
 import java.util.UUID;
 
 public interface ProposalEntityRepository extends CrudRepository<ProposalEntity, UUID> {
-    List<ProposalEntity> findAllByOwnerId(OwnerId ownerId);
+    List<ProposalEntity> findAllByOwnerId(UUID ownerId);
 }

@@ -1,6 +1,5 @@
 package org.ercsn.proposalmanagement.proposal.infrastructure.persistence.repository;
 
-import jdk.jfr.Registered;
 import org.ercsn.proposalmanagement.proposal.domain.OwnerId;
 import org.ercsn.proposalmanagement.proposal.domain.Proposal;
 import org.ercsn.proposalmanagement.proposal.domain.ProposalRepository;
@@ -29,11 +28,16 @@ public class JpaProposalRepository implements ProposalRepository {
 
     @Override
     public List<Proposal> findAllByOwnerId(OwnerId ownerId) {
-        return List.of();
+        return proposalEntityRepository.findAllByOwnerId(ownerId.id())
+                .stream()
+                .map(ProposalEntity::toDomain)
+                .toList();
     }
 
     @Override
     public Proposal save(Proposal proposal) {
-        return null;
+        var entity = ProposalEntity.from(proposal);
+        var saved = proposalEntityRepository.save(entity);
+        return saved.toDomain();
     }
 }
