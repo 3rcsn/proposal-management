@@ -1,0 +1,9 @@
+package org.ercsn.proposalmanagement.proposal.infrastructure.persistence.repository;
+
+import org.ercsn.proposalmanagement.proposal.infrastructure.persistence.entity.ProposalEntity;
+import org.springframework.data.repository.CrudRepository;
+
+import java.util.UUID;
+
+public interface ProposalEntityRepository extends CrudRepository<ProposalEntity, UUID> {
+}
