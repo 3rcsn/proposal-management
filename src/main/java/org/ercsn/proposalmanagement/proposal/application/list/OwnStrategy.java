@@ -3,9 +3,11 @@ package org.ercsn.proposalmanagement.proposal.application.list;
 import org.ercsn.proposalmanagement.proposal.domain.OwnerId;
 import org.ercsn.proposalmanagement.proposal.domain.Proposal;
 import org.ercsn.proposalmanagement.proposal.domain.ProposalRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class OwnStrategy implements Strategy {
     private final ProposalRepository proposalRepository;
 

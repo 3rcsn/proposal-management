@@ -1,6 +1,5 @@
 package org.ercsn.proposalmanagement.proposal.infrastructure.persistence.repository;
 
-import org.ercsn.proposalmanagement.proposal.domain.OwnerId;
 import org.ercsn.proposalmanagement.proposal.infrastructure.persistence.entity.ProposalEntity;
 import org.springframework.data.repository.CrudRepository;
 
