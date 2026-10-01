@@ -4,13 +4,15 @@ import org.ercsn.proposalmanagement.proposal.application.list.AccessScope;
 import org.ercsn.proposalmanagement.proposal.application.list.Factory;
 import org.ercsn.proposalmanagement.proposal.application.output.ProposalOutput;
 import org.ercsn.proposalmanagement.proposal.domain.OwnerId;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-public class ListProposalUseCase {
+@Service
+public class ListProposalsUseCase {
     private final Factory factory;
 
-    public ListProposalUseCase(Factory factory) {
+    public ListProposalsUseCase(Factory factory) {
         this.factory = factory;
     }
 

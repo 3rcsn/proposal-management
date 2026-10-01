@@ -3,7 +3,6 @@ package org.ercsn.proposalmanagement.proposal.application;
 import org.ercsn.proposalmanagement.proposal.application.input.CreateProposalInput;
 import org.ercsn.proposalmanagement.proposal.application.output.ProposalOutput;
 import org.ercsn.proposalmanagement.proposal.domain.Owner;
-import org.ercsn.proposalmanagement.proposal.domain.Proposal;
 import org.ercsn.proposalmanagement.proposal.domain.ProposalRepository;
 import org.springframework.stereotype.Service;
 
